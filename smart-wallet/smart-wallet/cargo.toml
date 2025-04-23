@@ -1,0 +1,22 @@
+[package]
+name = "smart-wallet"
+version = "0.1.2"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+doctest = false
+
+[features]
+testutils = []
+
+[dependencies]
+soroban-sdk = { workspace = true }
+wallet-interface = { workspace = true }
+
+[dev-dependencies]
+soroban-sdk = { workspace = true, features = ["testutils"] }
+ed25519-dalek = { version = "1.0.1" }
+rand = { version = "0.7.3" }
+wallet-interface = { workspace = true }
+smart-wallet-factory = { workspace = true }

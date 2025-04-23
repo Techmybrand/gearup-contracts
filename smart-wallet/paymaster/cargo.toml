@@ -1,0 +1,19 @@
+[package]
+name = "paymaster"
+version = "0.1.2"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+doctest = false
+
+[features]
+testutils = []
+
+[dependencies]
+soroban-sdk = { workspace = true }
+wallet-interface = { workspace = true }
+
+[dev-dependencies]
+soroban-sdk = { workspace = true, features = ["testutils"] }
+wallet-interface = { workspace = true }

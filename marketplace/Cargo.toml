@@ -1,0 +1,25 @@
+[package]
+name = "marketplace"
+version = "0.1.2"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+doctest = false
+
+[features]
+testutils = []
+
+[dependencies]
+soroban-sdk = { workspace = true }
+nft = { workspace = true }
+agreement = { workspace = true }
+common = { workspace = true }
+escrow = { workspace = true }
+price-feed = { workspace = true }
+reflector-oracle-mock = { path = "../reflector-mock"}
+
+[dev-dependencies]
+soroban-sdk = { workspace = true, features = ["testutils"] }
+common = { workspace = true }
+reflector-oracle-mock = { path = "../reflector-mock"}

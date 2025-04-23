@@ -1,0 +1,39 @@
+[workspace]
+members = [
+    "agreement",
+    "escrow",
+    "marketplace",
+    "nft",
+    "price-feed",
+    "reflector-mock",
+    "smart-wallet/paymaster",
+    "smart-wallet/smart-wallet",
+    "smart-wallet/smart-wallet-factory",
+    "smart-wallet/wallet-interface",
+]
+resolver = "2"
+
+[workspace.dependencies]
+soroban-sdk = "22.0.7"
+agreement = { path = "agreement" }
+nft = { path = "nft" }
+common = { path = "common" }
+escrow = { path = "escrow" }
+price-feed = { path = "price-feed" }
+wallet-interface = { path = "smart-wallet/wallet-interface" }
+smart-wallet-factory = { path = "smart-wallet/smart-wallet-factory" }
+wallet = { path = "smart-wallet/wallet" }
+
+[profile.release]
+opt-level = "z"
+overflow-checks = true
+debug = 0
+strip = "symbols"
+debug-assertions = false
+panic = "abort"
+codegen-units = 1
+lto = true
+
+[profile.release-with-logs]
+inherits = "release"
+debug-assertions = true
